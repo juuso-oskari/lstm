@@ -184,31 +184,7 @@ class LstmNetwork:
 
 if __name__ == "__main__":
 
-    lstm_cell_1 = LstmCell(cp.array([0]), cp.array([0]), 1, 2)
-    ct_1, ht_1 = lstm_cell_1.feedforward(cp.array([1, 2]))
 
-    lstm_cell_2 = LstmCell(ct_1, ht_1, 1, 2)
-    ct_2, ht_2 = lstm_cell_2.feedforward(cp.array([0.5, 3]))
-
-    target_1 = cp.array([0.5])
-    target_2 = cp.array([1.25])
-
-    ht_error = ht_2 - target_2
-
-    ht_error_1 = ht_1 - target_1
-
-    ct_error, ht_error, deltas_2 = lstm_cell_2.backpropagate(0, ht_error)
-
-    ct_error, ht_error, deltas_1 = lstm_cell_1.backpropagate(ct_error, ht_error)
-
-    ct_error, ht_error, deltas_1_add = lstm_cell_1.backpropagate(0, ht_error_1)
-
-    print(deltas_2["Wf"])
-    print(deltas_2["Wi"])
-    print(deltas_2["Wo"])
-    print(deltas_2["Wc"])
-
-    print(cp.matmul(cp.array([])))
 
 
 
